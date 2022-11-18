@@ -54,6 +54,14 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             //GetComponent<Rigidbody>().AddForce(tempVect, ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(new Vector3(0,0,0), ForceMode.Impulse);
+
+        }
+
+
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            //GetComponent<Rigidbody>().AddForce(tempVect, ForceMode.VelocityChange);
             GetComponent<Rigidbody>().velocity = tempVect*150;
 
         }

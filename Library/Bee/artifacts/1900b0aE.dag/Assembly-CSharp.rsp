@@ -357,6 +357,7 @@
 "Assets/Main/Door.cs"
 "Assets/Main/GETrequest.cs"
 "Assets/Main/Movement.cs"
+"Assets/Weapons/PickWeapon.cs"
 -langversion:9.0
 
 /deterministic

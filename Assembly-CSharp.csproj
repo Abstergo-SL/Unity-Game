@@ -61,6 +61,7 @@
     <Compile Include="Assets\inicio\toMain.cs" />
     <Compile Include="Assets\Main\Movement.cs" />
     <Compile Include="Assets\inicio\inicio.cs" />
+    <Compile Include="Assets\Weapons\PickWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

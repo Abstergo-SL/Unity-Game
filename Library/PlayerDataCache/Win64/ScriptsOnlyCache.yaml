@@ -1,9 +1,24 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Door
+    - GETrequest
+    - Movement
+    - PickWeapon
+    - defineItems
     - inicio
+    - inventory
+    - toMain
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -15,6 +30,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
   serializedClasses:
     UnityEngine.CoreModule:
@@ -31,9 +47,99 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
+    fullTypeName: toMain
+    methodName: loadMain
+  - assembly: Assembly-CSharp
     fullTypeName: inicio
     methodName: click
   sceneClasses:
+    Assets/Scenes/Main.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1566}
+    - Class: 114
+      Script: {instanceID: 1872}
+    - Class: 114
+      Script: {instanceID: 2318}
+    - Class: 114
+      Script: {instanceID: 2624}
+    - Class: 114
+      Script: {instanceID: 2850}
+    - Class: 114
+      Script: {instanceID: 3152}
+    - Class: 114
+      Script: {instanceID: 4308}
+    - Class: 114
+      Script: {instanceID: 4388}
+    - Class: 114
+      Script: {instanceID: 5538}
+    - Class: 114
+      Script: {instanceID: 5874}
+    - Class: 114
+      Script: {instanceID: 6370}
+    - Class: 114
+      Script: {instanceID: 7188}
+    - Class: 114
+      Script: {instanceID: 23838}
+    - Class: 114
+      Script: {instanceID: 30882}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 143
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/Menu.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -49,28 +155,28 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1574}
+      Script: {instanceID: 1566}
     - Class: 114
-      Script: {instanceID: 2630}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 2856}
+      Script: {instanceID: 2850}
     - Class: 114
-      Script: {instanceID: 3158}
+      Script: {instanceID: 3152}
     - Class: 114
-      Script: {instanceID: 5540}
+      Script: {instanceID: 5538}
     - Class: 114
-      Script: {instanceID: 5876}
+      Script: {instanceID: 5874}
     - Class: 114
-      Script: {instanceID: 6372}
+      Script: {instanceID: 6370}
     - Class: 114
-      Script: {instanceID: 28426}
+      Script: {instanceID: 6652}
+    - Class: 114
+      Script: {instanceID: 7590}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -142,6 +248,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PickWeapon
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -468,6 +580,18 @@ ScriptsOnlyBuild:
     className: DictionaryAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Door
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GETrequest
+  - hash:
+      serializedVersion: 2
       Hash: 6980e81ddc615a861309d2d659cc3760
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -679,6 +803,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: toMain
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnDragMessageListener
@@ -768,6 +898,12 @@ ScriptsOnlyBuild:
     className: UnityOnSubmitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 90d5ba97fcbecc4977203843ad9b7617
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Movement
+  - hash:
+      serializedVersion: 2
       Hash: a81d4c2c1cf3ad164d277d927a193679
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -796,6 +932,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ScrollRect
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: inicio
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -867,8 +1009,21 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: inicio
+    className: inventory
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Item
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: defineItems
   platform: 19
   scenePathNames:
+  - Assets/Scenes/Main.unity
   - Assets/Scenes/Menu.unity
-  playerPath: C:/Users/admin-dam2b/Unity/Menu.exe
+  playerPath: C:/Users/admin-dam2b/Desktop/Menu.exe

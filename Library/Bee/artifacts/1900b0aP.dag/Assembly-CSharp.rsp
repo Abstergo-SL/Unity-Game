@@ -308,7 +308,15 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.VisualScripting.Flow.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.VisualScripting.State.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
-"Assets/inicio.cs"
+"Assets/inicio/inicio.cs"
+"Assets/inicio/toMain.cs"
+"Assets/Items/defineItems.cs"
+"Assets/Items/Item.cs"
+"Assets/Items/PickWeapon.cs"
+"Assets/Main/Door.cs"
+"Assets/Main/GETrequest.cs"
+"Assets/Main/inventory.cs"
+"Assets/Main/Movement.cs"
 -langversion:9.0
 
 /deterministic

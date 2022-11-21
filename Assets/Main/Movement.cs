@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
 
     private Animator m_animator;
+    private CharacterController m_characterController;
     private GameObject m_player;
-    private int m_speed = 100;
     private GameObject m_interact;
+
+    public float sensitivity = 0.000000001f;
+
+    public float m_speed = 6.0F;
+    public float jumpSpeed = 10.0F;
+    public float gravity = 20.0F;
+    private Vector3 moveDirection = Vector3.zero;
 
     private Animator m_anim;
 
@@ -20,7 +28,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         m_anim= GetComponent<Animator>();
-
+        m_characterController= GetComponent<CharacterController>();
         m_anim.Play("Base Layer.Hurricane Kick", 0, 0.25f);
 
         m_player = GameObject.Find("Player");
@@ -37,58 +45,37 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gravity();
         moves();
+        rotation();
     }
 
-    public void gravity()
+    private void OnCollisionExit(Collision collision)
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(x_axis,y_axis-100,z_axis);
+        
     }
 
+    public void rotation()
+    {
+        //var c = Camera.main.transform;
+        var c = m_player.transform;
+        c.Rotate(0, Input.GetAxis("Mouse X")/2 * sensitivity, 0);
+        //c.Rotate(-Input.GetAxis("Mouse Y") * sensitivity, 0, 0);
+        if (Input.GetMouseButtonDown(0))
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+    }
     public void moves()
     {
-        Vector3 tempVect = m_player.transform.transform.forward + new Vector3(x_axis, y_axis, z_axis);
-        tempVect = tempVect.normalized * m_speed * Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        CharacterController controller = GetComponent<CharacterController>();
+        if (controller.isGrounded)
         {
-            //GetComponent<Rigidbody>().AddForce(tempVect, ForceMode.VelocityChange);
-            GetComponent<Rigidbody>().AddForce(new Vector3(0,0,0), ForceMode.Impulse);
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= m_speed;
+            if (Input.GetButton("Jump"))
+                moveDirection.y = jumpSpeed * 3;
 
         }
-
-
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
-            //GetComponent<Rigidbody>().AddForce(tempVect, ForceMode.VelocityChange);
-            GetComponent<Rigidbody>().velocity = tempVect*150;
-
-        }
-        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
-        {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        {
-            //GetComponent<Rigidbody>().AddForce(-tempVect, ForceMode.VelocityChange);
-            GetComponent<Rigidbody>().velocity = -(tempVect * 150);
-        }
-        else if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
-        {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            this.transform.Rotate(Vector3.up, -1);
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            this.transform.Rotate(Vector3.up, 1);
-        }
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
     }
 }

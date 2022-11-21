@@ -56,12 +56,15 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Items\PickWeapon.cs" />
     <Compile Include="Assets\Main\Door.cs" />
     <Compile Include="Assets\Main\GETrequest.cs" />
     <Compile Include="Assets\inicio\toMain.cs" />
     <Compile Include="Assets\Main\Movement.cs" />
     <Compile Include="Assets\inicio\inicio.cs" />
-    <Compile Include="Assets\Weapons\PickWeapon.cs" />
+    <Compile Include="Assets\Main\inventory.cs" />
+    <Compile Include="Assets\Items\Item.cs" />
+    <Compile Include="Assets\Items\defineItems.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
